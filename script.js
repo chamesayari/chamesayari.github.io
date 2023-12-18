@@ -1,12 +1,12 @@
 function getGatherTrafficsInfos() {
   var totalTraffics, botTraffics, realTraffics, table;
-  const goodFileUrl = "http://pvt-1.ru/securel/1/test/good.txt";
-  const badFileUrl = "http://pvt-1.ru/securel/1/test/bad.txt";
+  const goodFileUrl = "https://pvt-1.ru/securel/1/test/good.txt";
+  const badFileUrl = "https://pvt-1.ru/securel/1/test/bad.txt";
   table = document.getElementById("tbody-id");
 
   // good File Fetching
 
-  fetch(goodFileUrl)
+  fetch(goodFileUrl, { mode: 'no-cors'})
     .then(response => response.text())
     .then(data => {
       // Split the content into lines
@@ -50,7 +50,7 @@ function getGatherTrafficsInfos() {
 
   // Bad File Fetching
 
-  fetch(badFileUrl)
+  fetch(badFileUrl, { mode: 'no-cors'})
     .then(response => response.text())
     .then(data2 => {
       // Split the content into lines
