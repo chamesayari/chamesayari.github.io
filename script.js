@@ -6,7 +6,7 @@ function getGatherTrafficsInfos() {
 
   // good File Fetching
 
-  fetch(goodFileUrl, { mode: 'no-cors'})
+  fetch(goodFileUrl)
     .then(response => response.text())
     .then(data => {
       // Split the content into lines
@@ -50,7 +50,7 @@ function getGatherTrafficsInfos() {
 
   // Bad File Fetching
 
-  fetch(badFileUrl, { mode: 'no-cors'})
+  fetch(badFileUrl)
     .then(response => response.text())
     .then(data2 => {
       // Split the content into lines
