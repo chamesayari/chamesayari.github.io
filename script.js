@@ -1,5 +1,8 @@
 function getGatherTrafficsInfos() {
-  var totalTraffics, botTraffics, realTraffics, table;
+  var table;
+  var totalTraffics = 0;
+  var botTraffics = 0;
+  var realTraffics = 0;
   const goodFileUrl = "https://pvt-1.ru/securel/1/good.txt";
   const badFileUrl = "https://pvt-1.ru/securel/1/bad.txt";
   table = document.getElementById("tbody-id");
@@ -55,7 +58,7 @@ function getGatherTrafficsInfos() {
       // Split the content into lines
       const lines2 = data2.split('\n');
       botTraffics = lines2.length;
-      totalTraffics = realTraffics + botTraffics - 2;
+      totalTraffics = realTraffics + botTraffics;
       
      
       var botTrafficsHtml = document.getElementById('botTraffics');
