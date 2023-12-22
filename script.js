@@ -19,8 +19,8 @@ function getGatherTrafficsInfos() {
       // Process each line
       lines.forEach(line => {
         let country, isp, ua, ip, status;
-        [country, isp, ua, ip, status] = line.split('|');
         realTraffics += 1;
+        [country, isp, ua, ip, status] = line.split('|');
         // Auto Increment Table
         var trTable = document.createElement('tr');
         var tdCountry = document.createElement('td');
