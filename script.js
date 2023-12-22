@@ -46,7 +46,7 @@ function getGatherTrafficsInfos() {
       realTraffics -= 1;
       var realTrafficsHtml = document.getElementById('realTraffics');
       if (realTrafficsHtml) {
-      var newText = document.createTextNode(realTraffics);
+      var newText = document.createTextNode(realTraffics.toString());
       realTrafficsHtml.appendChild(newText);
       }
     })
@@ -94,12 +94,12 @@ function getGatherTrafficsInfos() {
          var botTrafficsHtml = document.getElementById('botTraffics');
       
       if (botTrafficsHtml) {
-      var newText = document.createTextNode(botTraffics);
+      var newText = document.createTextNode(botTraffics.toString());
           botTrafficsHtml.appendChild(newText);
       }
         var totalTrafficsHtml = document.getElementById('totalTraffics');
         if (totalTrafficsHtml) {
-        var newText = document.createTextNode(totalTraffics);
+        var newText = document.createTextNode(totalTraffics.toString());
           totalTrafficsHtml.appendChild(newText);
         }
     })
