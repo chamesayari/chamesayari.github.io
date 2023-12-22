@@ -43,6 +43,7 @@ function getGatherTrafficsInfos() {
 
 
       });
+      realTraffics -= 1;
       var realTrafficsHtml = document.getElementById('realTraffics');
       if (realTrafficsHtml) {
       var newText = document.createTextNode(realTraffics);
@@ -88,6 +89,7 @@ function getGatherTrafficsInfos() {
 
 
       });
+          botTraffics -= 1;
           totalTraffics = realTraffics + botTraffics;
          var botTrafficsHtml = document.getElementById('botTraffics');
       
