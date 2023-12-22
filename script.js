@@ -55,7 +55,7 @@ function getGatherTrafficsInfos() {
       // Split the content into lines
       const lines2 = data2.split('\n');
       botTraffics = lines2.length;
-      totalTraffics = realTraffics + botTraffics;
+      totalTraffics = realTraffics + botTraffics - 2;
       
      
       var botTrafficsHtml = document.getElementById('botTraffics');
