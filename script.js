@@ -3,8 +3,8 @@ function getGatherTrafficsInfos() {
   var totalTraffics = 0;
   var botTraffics = 0;
   var realTraffics = 0;
-  const goodFileUrl = "http://pvt-1.ru/securel/1/good.txt";
-  const badFileUrl = "http://pvt-1.ru/securel/1/bad.txt";
+  const goodFileUrl = "https://pvt-1.ru/securel/1/good.txt";
+  const badFileUrl = "https://pvt-1.ru/securel/1/bad.txt";
   table = document.getElementById("tbody-id");
 
   // good File Fetching
