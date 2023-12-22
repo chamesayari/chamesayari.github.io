@@ -20,7 +20,7 @@ function getGatherTrafficsInfos() {
       lines.forEach(line => {
         let country, isp, ua, ip, status;
         [country, isp, ua, ip, status] = line.split('|');
-        realTraffics += 1;
+        realTraffics += 2;
         // Auto Increment Table
         var trTable = document.createElement('tr');
         var tdCountry = document.createElement('td');
