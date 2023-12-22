@@ -14,13 +14,13 @@ function getGatherTrafficsInfos() {
     .then(data => {
       // Split the content into lines
       const lines = data.split("\r\n");
-      realTraffics = lines.length;
+      //realTraffics = lines.length;
       
       // Process each line
       lines.forEach(line => {
         let country, isp, ua, ip, status;
         [country, isp, ua, ip, status] = line.split('|');
-
+        realTraffics += 1;
         // Auto Increment Table
         var trTable = document.createElement('tr');
         var tdCountry = document.createElement('td');
@@ -58,15 +58,12 @@ function getGatherTrafficsInfos() {
     .then(data2 => {
       // Split the content into lines
       const lines2 = data2.split("\r\n");
-      botTraffics = lines2.length;
-      totalTraffics = realTraffics + botTraffics;
-      
-     
-     
+      //botTraffics = lines2.length;
       
       // Process each line
       lines2.forEach(line => {
         let country, isp, ua, ip, status;
+        botTraffics += 1;
         [country, isp, ua, ip, status] = line.split('|');
 
         // Auto Increment Table
@@ -91,6 +88,7 @@ function getGatherTrafficsInfos() {
 
 
       });
+          totalTraffics = realTraffics + botTraffics;
          var botTrafficsHtml = document.getElementById('botTraffics');
       
       if (botTrafficsHtml) {
