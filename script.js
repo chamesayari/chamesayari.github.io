@@ -57,13 +57,9 @@ function getGatherTrafficsInfos() {
       botTraffics = lines2.length;
       totalTraffics = realTraffics + botTraffics;
       
-      var totalTrafficsHtml = document.getElementById('totalTraffics');
+     
       var botTrafficsHtml = document.getElementById('botTraffics');
       
-      if (totalTrafficsHtml) {
-        var newText = document.createTextNode(totalTraffics);
-          totalTrafficsHtml.appendChild(newText);
-        }
       if (botTrafficsHtml) {
       var newText = document.createTextNode(botTraffics);
           botTrafficsHtml.appendChild(newText);
@@ -96,6 +92,11 @@ function getGatherTrafficsInfos() {
 
 
       });
+        var totalTrafficsHtml = document.getElementById('totalTraffics');
+        if (totalTrafficsHtml) {
+        var newText = document.createTextNode(totalTraffics);
+          totalTrafficsHtml.appendChild(newText);
+        }
     })
     .catch(error => console.error('Error fetching the Bot results file', error));
 
