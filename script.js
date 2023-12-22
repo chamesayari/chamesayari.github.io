@@ -20,7 +20,7 @@ function getGatherTrafficsInfos() {
       lines.forEach(line => {
         let country, isp, ua, ip, status;
         [country, isp, ua, ip, status] = line.split('|');
-        realTraffics += 2;
+        realTraffics += 1;
         // Auto Increment Table
         var trTable = document.createElement('tr');
         var tdCountry = document.createElement('td');
@@ -43,7 +43,7 @@ function getGatherTrafficsInfos() {
 
 
       });
-      realTraffics -= 1;
+      //realTraffics -= 1;
       var realTrafficsHtml = document.getElementById('realTraffics');
       if (realTrafficsHtml) {
       var newText = document.createTextNode(realTraffics.toString());
@@ -89,7 +89,7 @@ function getGatherTrafficsInfos() {
 
 
       });
-          botTraffics -= 1;
+          //botTraffics -= 1;
           totalTraffics = realTraffics + botTraffics;
          var botTrafficsHtml = document.getElementById('botTraffics');
       
