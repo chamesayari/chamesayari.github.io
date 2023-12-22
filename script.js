@@ -13,7 +13,7 @@ function getGatherTrafficsInfos() {
     .then(response => response.text())
     .then(data => {
       // Split the content into lines
-      const lines = data.split("\r\n");
+      const lines = data.split("\n");
       //realTraffics = lines.length;
       
       // Process each line
@@ -58,7 +58,7 @@ function getGatherTrafficsInfos() {
     .then(response => response.text())
     .then(data2 => {
       // Split the content into lines
-      const lines2 = data2.split("\r\n");
+      const lines2 = data2.split("\n");
       //botTraffics = lines2.length;
       
       // Process each line
