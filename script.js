@@ -13,7 +13,7 @@ function getGatherTrafficsInfos() {
     .then(response => response.text())
     .then(data => {
       // Split the content into lines
-      const lines = data.split("\r\n");
+      var lines = data.split("\r\n");
       realTraffics = lines.length;
       var realTrafficsHtml = document.getElementById('realTraffics');
       if (realTrafficsHtml) {
