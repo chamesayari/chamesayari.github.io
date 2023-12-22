@@ -13,13 +13,9 @@ function getGatherTrafficsInfos() {
     .then(response => response.text())
     .then(data => {
       // Split the content into lines
-      var lines = data.split("\r\n");
+      const lines = data.split("\r\n");
       realTraffics = lines.length;
-      var realTrafficsHtml = document.getElementById('realTraffics');
-      if (realTrafficsHtml) {
-      var newText = document.createTextNode(realTraffics);
-      realTrafficsHtml.appendChild(newText);
-      }
+      
       // Process each line
       lines.forEach(line => {
         let country, isp, ua, ip, status;
@@ -47,6 +43,11 @@ function getGatherTrafficsInfos() {
 
 
       });
+      var realTrafficsHtml = document.getElementById('realTraffics');
+      if (realTrafficsHtml) {
+      var newText = document.createTextNode(realTraffics);
+      realTrafficsHtml.appendChild(newText);
+      }
     })
     .catch(error => console.error('Error fetching the Real results file', error));
 
@@ -61,12 +62,7 @@ function getGatherTrafficsInfos() {
       totalTraffics = realTraffics + botTraffics;
       
      
-      var botTrafficsHtml = document.getElementById('botTraffics');
-      
-      if (botTrafficsHtml) {
-      var newText = document.createTextNode(botTraffics);
-          botTrafficsHtml.appendChild(newText);
-      }
+     
       
       // Process each line
       lines2.forEach(line => {
@@ -95,6 +91,12 @@ function getGatherTrafficsInfos() {
 
 
       });
+         var botTrafficsHtml = document.getElementById('botTraffics');
+      
+      if (botTrafficsHtml) {
+      var newText = document.createTextNode(botTraffics);
+          botTrafficsHtml.appendChild(newText);
+      }
         var totalTrafficsHtml = document.getElementById('totalTraffics');
         if (totalTrafficsHtml) {
         var newText = document.createTextNode(totalTraffics);
