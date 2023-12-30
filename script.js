@@ -10,7 +10,9 @@ function getGatherTrafficsInfos() {
     .then(response => response.json())
     .then(data => {
       // Split the content into lines
-      const lines = data.split('\r\n');
+      const lines = data.split('\n');
+      lines = lines.replace(/"/g, '');
+      console.log(lines);
       totalTraffics = lines.length;
       realTraffics = totalTraffics;
       var realTrafficsHtml = document.getElementById('realTraffics');
@@ -54,7 +56,9 @@ function getGatherTrafficsInfos() {
     .then(response => response.json())
     .then(data2 => {
       // Split the content into lines
-      const lines2 = data2.split('\r\n');
+      const lines2 = data2.split('\n');
+      lines2 = lines2.replace(/"/g, '');
+      console.log(lines2);
       totalTraffics += lines2.length;
       botTraffics = lines2.length;
       
