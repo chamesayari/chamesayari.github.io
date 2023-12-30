@@ -11,7 +11,6 @@ function getGatherTrafficsInfos() {
     .then(data => {
       // Split the content into lines
       const lines = data.split('\n');
-      lines = lines.replace(/"/g, '');
       console.log(lines);
       totalTraffics = lines.length;
       realTraffics = totalTraffics;
@@ -57,7 +56,6 @@ function getGatherTrafficsInfos() {
     .then(data2 => {
       // Split the content into lines
       const lines2 = data2.split('\n');
-      lines2 = lines2.replace(/"/g, '');
       console.log(lines2);
       totalTraffics += lines2.length;
       botTraffics = lines2.length;
