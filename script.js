@@ -1,5 +1,8 @@
 function getGatherTrafficsInfos() {
-  var totalTraffics, botTraffics, realTraffics, table;
+  var totalTraffics = 0;
+  var botTraffics = 0;
+  var realTraffics = 0;
+  var table;
   const goodFileUrl = "https://xproad2.pythonanywhere.com/emailsend/showgood";
   const badFileUrl = "https://xproad2.pythonanywhere.com/emailsend/showbad";
   table = document.getElementById("tbody-id");
@@ -11,16 +14,11 @@ function getGatherTrafficsInfos() {
     .then(data => {
       // Split the content into lines
       const lines = data.split('\n');
-      console.log(lines);
-      totalTraffics = lines.length;
-      realTraffics = totalTraffics;
-      var realTrafficsHtml = document.getElementById('realTraffics');
-      if (realTrafficsHtml) {
-      var newText = document.createTextNode(realTraffics);
-      realTrafficsHtml.appendChild(newText);
-      }
+      
       // Process each line
       lines.forEach(line => {
+        totalTraffics += 1;
+        realTraffics += 1;
         let country, isp, ua, ip, status;
         [country, isp, ua, ip, status] = line.split('|');
 
@@ -46,6 +44,12 @@ function getGatherTrafficsInfos() {
 
 
       });
+      realTraffics -= 1;
+      var realTrafficsHtml = document.getElementById('realTraffics');
+      if (realTrafficsHtml) {
+      var newText = document.createTextNode(realTraffics);
+      realTrafficsHtml.appendChild(newText);
+      }
     })
     .catch(error => console.error('Error fetching the Real results file', error));
 
@@ -56,10 +60,38 @@ function getGatherTrafficsInfos() {
     .then(data2 => {
       // Split the content into lines
       const lines2 = data2.split('\n');
-      console.log(lines2);
-      totalTraffics += lines2.length;
-      botTraffics = lines2.length;
       
+      // Process each line
+      lines2.forEach(line => {
+        totalTraffics += 1;
+        botTraffics += 1;
+        let country, isp, ua, ip, status;
+        [country, isp, ua, ip, status] = line.split('|');
+
+        // Auto Increment Table
+        var trTable = document.createElement('tr');
+        var tdCountry = document.createElement('td');
+        var tdIsp = document.createElement('td');
+        var tdUa = document.createElement('td');
+        var tdIp = document.createElement('td');
+        var tdStatus = document.createElement('td');
+
+        tdCountry.textContent = country;
+        tdIsp.textContent = isp;
+        tdUa.textContent = ua;
+        tdIp.textContent = ip;
+        tdStatus.textContent = status;
+        trTable.appendChild(tdCountry);
+        trTable.appendChild(tdIsp);
+        trTable.appendChild(tdUa);
+        trTable.appendChild(tdIp);
+        trTable.appendChild(tdStatus);
+        table.appendChild(trTable);
+
+
+      });
+      totalTraffics -= 2;
+      botTraffics -= 1;
       var totalTrafficsHtml = document.getElementById('totalTraffics');
       var botTrafficsHtml = document.getElementById('botTraffics');
       
@@ -71,34 +103,6 @@ function getGatherTrafficsInfos() {
       var newText = document.createTextNode(botTraffics);
           botTrafficsHtml.appendChild(newText);
       }
-      
-      // Process each line
-      lines2.forEach(line => {
-        let country, isp, ua, ip, status;
-        [country, isp, ua, ip, status] = line.split('|');
-
-        // Auto Increment Table
-        var trTable = document.createElement('tr');
-        var tdCountry = document.createElement('td');
-        var tdIsp = document.createElement('td');
-        var tdUa = document.createElement('td');
-        var tdIp = document.createElement('td');
-        var tdStatus = document.createElement('td');
-
-        tdCountry.textContent = country;
-        tdIsp.textContent = isp;
-        tdUa.textContent = ua;
-        tdIp.textContent = ip;
-        tdStatus.textContent = status;
-        trTable.appendChild(tdCountry);
-        trTable.appendChild(tdIsp);
-        trTable.appendChild(tdUa);
-        trTable.appendChild(tdIp);
-        trTable.appendChild(tdStatus);
-        table.appendChild(trTable);
-
-
-      });
     })
     .catch(error => console.error('Error fetching the Bot results file', error));
 
