@@ -7,7 +7,7 @@ function getGatherTrafficsInfos() {
   // good File Fetching
 
   fetch(goodFileUrl)
-    .then(response => response.text())
+    .then(response => response.json())
     .then(data => {
       // Split the content into lines
       const lines = data.split('\n');
@@ -51,7 +51,7 @@ function getGatherTrafficsInfos() {
   // Bad File Fetching
 
   fetch(badFileUrl)
-    .then(response => response.text())
+    .then(response => response.json())
     .then(data2 => {
       // Split the content into lines
       const lines2 = data2.split('\n');
