@@ -6,9 +6,6 @@ function makeTest(emailToTest) {
 
     if (!emailToTest.includes("outlook") && !emailToTest.includes("hotmail") && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailToTest)) {
         
-        //const agent = new https.Agent({
-        //rejectUnauthorized: false,
-        //});
         formData.append('emailtest', emailToTest);
 
         try {
