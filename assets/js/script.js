@@ -4,13 +4,23 @@ function makeTest(emailToTest) {
     const errorMessage = 'Test email a échoué, veuillez essayer plus tard ou contactez-nous via telegram.';
     const catchedMessage = "Invalid email adresse ou n'est pas pris en charge.";
 
+    const https = require('https');
 
     if (!emailToTest.includes("outlook") && !emailToTest.includes("hotmail") && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailToTest)) {
+        
+        const agent = new https.Agent({
+        rejectUnauthorized: false,
+        });
         formData.append('emailtest', emailToTest);
 
-        fetch('http://20.84.48.24:80/sender/testemail', {
+        
+
+        try {
+
+        fetch('https://20.84.48.24:5000/sender/testemail', {
             method: 'POST',
-            body: formData
+            //body: formData
+            body: formData, agent
         })
         .then(response => {
             if (response.status === 200) {
@@ -28,6 +38,10 @@ function makeTest(emailToTest) {
                 return $('.toast').toast('show');
             }
         })
+
+        } catch (error) {
+            console.log(error);
+        }
     
     } else {
         // Handle the case when emailToTest includes "outlook" or "hotmail" or "Invalid email addresse"
@@ -36,7 +50,8 @@ function makeTest(emailToTest) {
         document.querySelector('.toast').classList.replace('bg-danger', 'bg-warning');
         document.querySelector('.toast').classList.replace('bg-warning', 'bg-warning');
         return $('.toast').toast('show');
-    }
+    } 
+
 }
 
 // This is the demo secret key. In production, we recommend
