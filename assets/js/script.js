@@ -11,8 +11,6 @@ function makeTest(emailToTest) {
         //});
         formData.append('emailtest', emailToTest);
 
-        
-
         try {
 
         fetch('http://20.84.48.24:5000/sender/testemail', {
