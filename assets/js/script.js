@@ -6,11 +6,16 @@ function makeTest(emailToTest) {
 
     if (!emailToTest.includes("outlook") && !emailToTest.includes("hotmail") && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailToTest)) {
         
+        //const agent = new https.Agent({
+        //rejectUnauthorized: false,
+        //});
         formData.append('emailtest', emailToTest);
+
+        
 
         try {
 
-        fetch('http://20.84.48.24:5000/sender/testemail', {
+        fetch('https://20.84.48.24:5000/sender/testemail', {
             method: 'POST',
             body: formData
             //body: formData, agent
