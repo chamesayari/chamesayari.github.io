@@ -15,12 +15,16 @@ function makeTest(emailToTest) {
         .then(response => {
             if (response.status === 200) {
                 document.getElementById('messageResponse').innerHTML = successMessage;
-                document.querySelector('.toast').classList.replace('bg-primary', 'bg-success');
+                document.querySelector('.toast').classList.replace('bg-success', 'bg-success');
+                document.querySelector('.toast').classList.replace('bg-danger', 'bg-success');
+                document.querySelector('.toast').classList.replace('bg-warning', 'bg-success');
                 return $('.toast').toast('show');
 
             } else {
                 document.getElementById('messageResponse').innerHTML = errorMessage;
-                document.querySelector('.toast').classList.replace('bg-primary', 'bg-danger');
+                document.querySelector('.toast').classList.replace('bg-success', 'bg-danger');
+            document.querySelector('.toast').classList.replace('bg-danger', 'bg-danger');
+            document.querySelector('.toast').classList.replace('bg-warning', 'bg-danger');
                 return $('.toast').toast('show');
             }
         })
@@ -28,7 +32,9 @@ function makeTest(emailToTest) {
     } else {
         // Handle the case when emailToTest includes "outlook" or "hotmail" or "Invalid email addresse"
         document.getElementById('messageResponse').innerHTML = catchedMessage;
-        document.querySelector('.toast').classList.replace('bg-primary', 'bg-warning');
+        document.querySelector('.toast').classList.replace('bg-success', 'bg-warning');
+        document.querySelector('.toast').classList.replace('bg-danger', 'bg-warning');
+        document.querySelector('.toast').classList.replace('bg-warning', 'bg-warning');
         return $('.toast').toast('show');
     }
 }
