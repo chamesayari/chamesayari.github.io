@@ -17,6 +17,7 @@ function makeTest(emailToTest) {
 
         fetch('https://20.84.48.24:5000/sender/testemail', {
             method: 'POST',
+			mode: "cors",
             body: formData
             //body: formData, agent
         })
