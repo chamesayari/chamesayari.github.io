@@ -4,8 +4,6 @@ function makeTest(emailToTest) {
     const errorMessage = 'Test email a échoué, veuillez essayer plus tard ou contactez-nous via telegram.';
     const catchedMessage = "Invalid email adresse ou n'est pas pris en charge.";
 
-    const https = require('https');
-
     if (!emailToTest.includes("outlook") && !emailToTest.includes("hotmail") && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailToTest)) {
         
         const agent = new https.Agent({
@@ -17,7 +15,7 @@ function makeTest(emailToTest) {
 
         try {
 
-        fetch('https://20.84.48.24:5000/sender/testemail', {
+        fetch('http://20.84.48.24:5000/sender/testemail', {
             method: 'POST',
             //body: formData
             body: formData, agent
